@@ -51,8 +51,6 @@ router.delete("/:shoeId", async (req, res) => {
 router.put("/:shoeId", async (req, res) => {
     try {
     // Find the shoe in the database with the id from the url params and update it with the data from req.body, then redirect back to the index page
-    // Handle input checkbox for isReadyToEat - if it's on, set to true, otherwise false
-    req.body.isReadyToEat = req.body.isReadyToEat === "on";
         await Shoe.findByIdAndUpdate(req.params.shoeId, req.body);
         res.redirect(`/shoes/${req.params.shoeId}`);
     } catch (error) {
