@@ -22,25 +22,23 @@
         <p>Description: <%= shoe.description %></p>
         <p><img src="<%= shoe.imageUrl %>" alt="Shoe Image" width="400" height=auto></p>
 
+        <div class="shoe-actions">
+            <a class="edit-link" href="/shoes/<%= shoe._id %>/edit">
+                <button class="edit-text">Edit <%= shoe.name %></button>
+            </a>
 
-        <div class="shoe-actions"></div>
-        <a class="edit-link" href="/shoes/<%= shoe._id %>/edit">
-            <button class="edit-text">Edit <%= shoe.name %></button>
-        </a>
+            <a href="/shoes/<%= shoe._id %>/confirm_delete">
+                <button type="submit"> Delete <%= shoe.name %></button>
+            </a>
 
-        <a href="/shoes/<%= shoe._id %>/confirm_delete">
-            <button type="submit"> Delete <%= shoe.name %></button>
-        </a>
+            <form class="shoe-action-form" action="/shoes/<%= shoe._id %>/soft?_method=DELETE" method="POST">
+                <button type="submit">Soft Delete <%= shoe.name %></button>
+            </form>
 
-        <form action="/shoes/<%= shoe._id %>/soft?_method=DELETE" method="POST">
-            <button type="submit">Soft Delete <%= shoe.name %></button>
-        </form>
+            <a class="shoes-index-link" href="/shoes">
+                <div class="index-link-text">Back to Shoes</div>
+            </a>
         </div>
-        <div class="shoe-details"></div>
-
-        <a class="shoes-index-link" href="/shoes">
-            <div class="index-link-text">Back to Shoes</div>
-        </a>
 
 </body>
 </html>
